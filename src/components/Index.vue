@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" v-if="status === 0">
+  <div class="hello" v-if="status === 200">
     <h1>wa</h1>
   </div>
   <Loading v-else :page-status="status" :get-data="getData"></Loading>
@@ -43,7 +43,7 @@ export default {
     async getData() {
       const data = await Storage(this.params)
       console.log(data)
-      if(data.status === 500) {
+      if(data.config.length <= 0) {
         this.$router.push({path: `/Detail/${data.bookid}`})
       }else {
         this.status = data.status

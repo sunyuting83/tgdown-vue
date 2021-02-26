@@ -29,7 +29,6 @@ export default (url = '', data = {}, type = 'GET') => {
   return new Promise((resolve) => {
     fetch(url, requestConfig)
       .then(res => {
-        console.log(res)
         if(res.ok) {
           resolve (res.json())
         }else {
