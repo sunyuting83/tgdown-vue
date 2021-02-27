@@ -33,14 +33,14 @@ export default (url = '', data = {}, type = 'GET') => {
           resolve (res.json())
         }else {
           resolve({
-            status: 1,
+            status: 500,
             message: res.status
           })
         }
       })
       .catch((err) => {
         resolve({
-          status: 1,
+          status: 500,
           message: err.message
         })
       })

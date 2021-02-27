@@ -27,7 +27,7 @@ export default {
       handler: function (val, oldVal) { 
       // console.log(val,oldVal)
         if(val !== oldVal) this.status = val
-        if(val === 1) this.button = false
+        if(val > 200) this.button = false
       },
       deep: true
     }

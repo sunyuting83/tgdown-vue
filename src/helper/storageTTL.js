@@ -16,7 +16,7 @@ export default async function Storage (params = {}) {
       return data //返回数据
     }else {
       // 需要缓存超时
-      if(data.status === 0) {
+      if(data.status === 200) {
         const now = Date.now() + 1 //获取当前时间
         data['ttl'] = now + ttl.ttl //设置超时时间
         // console.log(data)
@@ -34,7 +34,7 @@ export default async function Storage (params = {}) {
         localStorage.removeItem(key) // 删除缓存
         let data = await fetch(url) //拉取数据
         // window.console.log(data)
-        if (data.status === 0) {
+        if (data.status === 200) {
           data['ttl'] = now + ttl.ttl //设置超时时间
           localStorage.setItem(key, JSON.stringify(data)) //保存缓存
         }
