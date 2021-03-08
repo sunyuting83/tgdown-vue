@@ -92,8 +92,10 @@ export default {
       this.ws.onmessage = (data) => {
         console.log("接收到来自服务器的消息：");
         const wsdata = JSON.parse(data.data)
-        const d = JSON.parse(wsdata.content)
-        this.list = d
+        if (wsdata.content !== "err") {
+          const d = JSON.parse(wsdata.content)
+          this.list = d
+        }
         // console.log(this.list)
       };
 
